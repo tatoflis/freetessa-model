@@ -1,0 +1,125 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>es.cic.tessa</groupId>
+		<artifactId>tessa-support</artifactId>
+		<version>2.7.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>tessa-support-model</artifactId>
+	<name>Tessa support model</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.target>21</maven.compiler.target>
+		<maven.compiler.source>21</maven.compiler.source>
+		<typescript-generator.version>3.2.1263</typescript-generator.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>es.cic.tessa</groupId>
+			<artifactId>tessa-support-common</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>tools.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!--
+			<plugin>
+				<groupId>cz.habarta.typescript-generator</groupId>
+				<artifactId>typescript-generator-maven-plugin</artifactId>
+				<version>${typescript-generator.version}</version>
+				<executions>
+					<execution>
+						<id>generate</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<phase>process-classes</phase>
+
+						<configuration>
+							<outputFileType />
+							<noFileComment>true</noFileComment>
+							<mapClasses>asClasses</mapClasses>
+							<mapEnum>asEnum</mapEnum>
+						 	<nonConstEnums> true </nonConstEnums> 
+							<generateConstructors>false</generateConstructors>
+							<jsonLibrary>jackson2</jsonLibrary>
+							<classes>
+								<class>es.cic.tessa.model.dto.AssetRequest</class>
+								<class>es.cic.tessa.model.dto.AssetResponse</class>
+								<class>es.cic.tessa.model.dto.AssetReferenceRequest</class>
+								<class>es.cic.tessa.model.dto.AssetReferenceResponse</class>
+								<class>es.cic.tessa.model.dto.AssetValueRequest</class>
+								<class>es.cic.tessa.model.dto.AssetValueResponse</class>
+								<class>es.cic.tessa.model.dto.HashtagRequest</class>
+								<class>es.cic.tessa.model.dto.HashtagResponse</class>
+								<class>es.cic.tessa.model.dto.OrganizerRequest</class>
+								<class>es.cic.tessa.model.dto.OrganizerResponse</class>
+								<class>es.cic.tessa.model.dto.DefaultValueAssetValueRequest</class>
+								<class>es.cic.tessa.model.dto.DefaultValueAssetValueResponse</class>
+								<class>es.cic.tessa.model.dto.ExpressionParamRequest</class>
+								<class>es.cic.tessa.model.dto.ExpressionParamResponse</class>
+								<class>es.cic.tessa.model.dto.TemplateAttributeCollectionMappingRequest</class>
+			<class>es.cic.tessa.model.dto.TemplateAttributeCollectionMappingResponse</class>
+								<class>es.cic.tessa.model.dto.TemplateAttributeRequest</class>
+								<class>es.cic.tessa.model.dto.TemplateAttributeResponse</class>
+								<class>es.cic.tessa.model.dto.TemplateRequest</class>
+								<class>es.cic.tessa.model.dto.TemplateResponse</class>
+								<class>es.cic.tessa.model.filter.AssetFilter</class>
+								<class>es.cic.tessa.model.filter.AssetValueFilter</class>
+								<class>es.cic.tessa.model.filter.HashtagFilter</class>
+								<class>es.cic.tessa.model.filter.OrganizerFilter</class>
+			<class>es.cic.tessa.model.filter.TemplateAttributeCollectionMappingFilter</class>
+								<class>es.cic.tessa.model.filter.TemplateAttributeFilter</class>
+								<class>es.cic.tessa.model.filter.TemplateFilter</class>
+								<class>es.cic.tessa.model.types.OrganizerType</class>
+								<class>es.cic.tessa.model.types.AssetType</class>
+								<class>es.cic.tessa.model.types.LookupType</class>
+								<class>es.cic.tessa.model.types.ReferenceType</class>
+								<class>es.cic.tessa.model.types.RelationType</class>
+								<class>es.cic.tessa.model.types.TemplateAttributeType</class>
+								<class>es.cic.tessa.model.types.TemplateType</class>
+								<class>es.cic.tessa.model.types.ContentType</class>
+								<class>es.cic.tessa.common.filter.Filter</class>
+							    <class>es.cic.tessa.common.filter.PropertyFilter</class>
+								<class>es.cic.tessa.common.filter.AttributeOrder</class>
+							</classes>
+							<excludeClasses>
+								<excludeClasse>java.io.Serializable</excludeClasse>
+							</excludeClasses>
+							<outputFileType>implementationFile</outputFileType>
+							<outputFile>src/main/resources/tessamodel.ts</outputFile>
+							<outputKind>module</outputKind>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		-->
+		</plugins>
+	</build>
+</project>

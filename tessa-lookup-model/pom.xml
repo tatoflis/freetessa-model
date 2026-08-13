@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>es.cic.tessa</groupId>
+		<artifactId>tessa-support</artifactId>
+		<version>2.7.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>tessa-support-lookup-model</artifactId>
+	<name>Tessa support lookup model</name>
+	<description>Tessa support lookup model</description>
+	<packaging>jar</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.target>21</maven.compiler.target>
+		<maven.compiler.source>21</maven.compiler.source>
+		<typescript-generator.version>4.0.0</typescript-generator.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>es.cic.tessa</groupId>
+			<artifactId>tessa-support-model</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>tools.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>cz.habarta.typescript-generator</groupId>
+				<artifactId>typescript-generator-maven-plugin</artifactId>
+				<version>${typescript-generator.version}</version>
+				<executions>
+					<execution>
+						<id>generate</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<phase>process-classes</phase>
+
+						<configuration>
+							<outputFileType />
+							<noFileComment>true</noFileComment>
+							<mapClasses>asClasses</mapClasses>
+							<mapEnum>asEnum</mapEnum>
+							<generateConstructors>false</generateConstructors>
+							<jsonLibrary>jackson2</jsonLibrary>
+							<classes>
+								<class>
+									es.cic.tessa.lookup.expression.model.ResultExpressionFunctionRecord</class>
+								<class>
+									es.cic.tessa.lookup.expression.model.ColumnValue</class>
+							</classes>
+							<excludeClasses>
+								<excludeClasse>java.io.Serializable</excludeClasse>
+							</excludeClasses>
+							<outputFileType>implementationFile</outputFileType>
+							<outputFile>src/main/resources/lookupmodel.ts</outputFile>
+							<outputKind>module</outputKind>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
